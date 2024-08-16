@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
+import { useCart } from "@/context/cartContext";
 
 const Header = () => {
+  // const { cartCount } = useCart();
   return (
     <header className="bg-blue-600 text-white p-4">
       <nav className="container mx-auto px-16 flex justify-between items-center">
@@ -27,6 +29,7 @@ const Header = () => {
             <Link className="hover:underline" href="/about">
               <div className="flex items-center gap-0.5">
                 <FaShoppingCart />
+                {/* <span className="ml-1">{cartCount}</span> */}
                 Cart
               </div>
             </Link>
