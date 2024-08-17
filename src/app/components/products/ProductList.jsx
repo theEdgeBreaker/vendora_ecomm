@@ -1,10 +1,21 @@
+"use client";
+
 import React from "react";
 import { useCart } from "../../../context/cartContext";
+// import { useContext } from "react";
+// import { CartContext } from "@/context/cartContext";
 import Image from "next/image";
 import { products } from "../../../data/products";
 
 const ProductList = () => {
   const { addToCart } = useCart();
+  // const cart = useContext(CartContext);
+  // console.log("cart", cart);
+
+  const handleAddToCart = (product) => {
+    console.log("Product to add:", product); // Logs the product before adding to cart
+    addToCart(product); // Call the addToCart function
+  };
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-20 py-6">
@@ -40,7 +51,9 @@ const ProductList = () => {
             <button
               className="w-full bg-blue-500 text-white py-2 px-4
             rounded-sm hover:bg-blue-600 transition"
-              onClick={() => addToCart(product)}
+              onClick={() => handleAddToCart(product)}
+              // onClick={() => addToCart(product)}
+              // onClick={() => cart.setItems([...cart.items, { product }])}
             >
               Add to Cart
             </button>
